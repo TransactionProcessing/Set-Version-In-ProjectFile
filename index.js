@@ -5,11 +5,11 @@ const fs = require('fs')
 try {
   // get the input values
   const filePath = core.getInput('filepath');
-  console.log(filepath);
+    console.log(filePath);
   const versionNumber = core.getInput('versionnumber');
   console.log(versionNumber);
   
-  fs.readFile(filepath, 'utf8', function (err,data) {
+    fs.readFile(filePath, 'utf8', function (err,data) {
     if (err) {
       return console.log(err);
     }
@@ -18,7 +18,7 @@ try {
     var result = data.replace('<ApplicationVersion>1</ApplicationVersion>', replacementString);
   
     console.log(result);
-    fs.writeFile(filepath, result, 'utf8', function (err) {
+        fs.writeFile(filePath, result, 'utf8', function (err) {
        if (err) return console.log(err);
     });
   });
