@@ -1,0 +1,12 @@
+name: "Set Version in csproj"
+description: 'Allow setting of version number attributes on a csproj file'
+inputs:
+  filepath: 
+    description: 'location of the csproj file'
+    reqiuired: true  
+  versionnumber:
+    description: 'version number to use'
+    required: true
+runs:
+  using: 'node16'
+  main: 'dist/index.js'    
