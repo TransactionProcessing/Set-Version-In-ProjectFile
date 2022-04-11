@@ -16,7 +16,9 @@ try {
     //<ApplicationVersion>1</ApplicationVersion>
     var replacementString = `<ApplicationVersion>${versionNumber}</ApplicationVersion>`;
     var result = data.replace('<ApplicationVersion>1</ApplicationVersion>', replacementString);
-  
+    var replacementString = `<ApplicationDisplayVersion>${versionNumber}</ApplicationDisplayVersion>`;
+    var result = result.replace('<ApplicationDisplayVersion>1</ApplicationDisplayVersion>', replacementString);
+
     console.log(result);
         fs.writeFile(filePath, result, 'utf8', function (err) {
        if (err) return console.log(err);
