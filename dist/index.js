@@ -8492,7 +8492,7 @@ try {
                 `<ApplicationDisplayVersion>${versionNumber}</ApplicationDisplayVersion>`;
             console.log(displayVersionReplacementString);
             var result = data.replace("<ApplicationVersion>1</ApplicationVersion>", versionReplacementString);
-            result = result.replace("<ApplicationDisplayVersion>${versionNumber}</ApplicationDisplayVersion>",
+            result = result.replace("<ApplicationDisplayVersion>1</ApplicationDisplayVersion>",
                 displayVersionReplacementString);
 
             console.log(result);
