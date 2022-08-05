@@ -17,7 +17,7 @@ try {
             }
 
             var versionReplacementString = `<ApplicationVersion>${versionNumber}</ApplicationVersion>`;
-            versionReplacementString  = versionReplacementString .replace(".","")l
+            versionReplacementString  = versionReplacementString.replace(".","");
             console.log(versionReplacementString);
             var displayVersionReplacementString =
                 `<ApplicationDisplayVersion>${versionNumber}</ApplicationDisplayVersion>`;
