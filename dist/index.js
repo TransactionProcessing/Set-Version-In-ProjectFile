@@ -8478,6 +8478,8 @@ try {
     console.log(filePath);
     const versionNumber = core.getInput("versionnumber");
     console.log(versionNumber);
+    const isWindows = core.getInput("isWindows");
+    console.log(isWindows);
 
     fs.readFile(filePath,
         "utf8",
@@ -8488,13 +8490,22 @@ try {
 
             var versionReplacementString = `<ApplicationVersion>${versionNumber}</ApplicationVersion>`;
             versionReplacementString  = versionReplacementString.replaceAll(".","");
-	    console.log(versionReplacementString);
+            console.log(versionReplacementString);
             var displayVersionReplacementString =
                 `<ApplicationDisplayVersion>${versionNumber}</ApplicationDisplayVersion>`;
             console.log(displayVersionReplacementString);
-            var result = data.replace("<ApplicationVersion>1</ApplicationVersion>", versionReplacementString);
-            result = result.replace("<ApplicationDisplayVersion>1</ApplicationDisplayVersion>",
-                displayVersionReplacementString);
+            
+            var result = null;
+            if (isWindows === "true"){
+                result = data.replace("<ApplicationVersion>1</ApplicationVersion>", "");
+                result = result.replace("<ApplicationDisplayVersion>1</ApplicationDisplayVersion>",
+                    displayVersionReplacementString);
+            }
+            else{
+                result = data.replace("<ApplicationVersion>1</ApplicationVersion>", versionReplacementString);
+                result = result.replace("<ApplicationDisplayVersion>1</ApplicationDisplayVersion>",
+                    displayVersionReplacementString);
+            }
 
             console.log(result);
             fs.writeFile(filePath,
@@ -8518,6 +8529,7 @@ try {
 } catch (error) {
     core.setFailed(error.message);
 }
+
 })();
 
 module.exports = __webpack_exports__;
