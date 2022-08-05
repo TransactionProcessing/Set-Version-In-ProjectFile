@@ -8487,7 +8487,8 @@ try {
             }
 
             var versionReplacementString = `<ApplicationVersion>${versionNumber}</ApplicationVersion>`;
-            console.log(versionReplacementString);
+            versionReplacementString  = versionReplacementString.replace(".","");
+	    console.log(versionReplacementString);
             var displayVersionReplacementString =
                 `<ApplicationDisplayVersion>${versionNumber}</ApplicationDisplayVersion>`;
             console.log(displayVersionReplacementString);
